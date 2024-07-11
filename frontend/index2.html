@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX Todo</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+     <link rel="icon" href="https://appsrv1-147a1.kxcdn.com/bulma-css-starter/media/favicon.png">
+ 
+    <style>
+      .padded{
+       padding-left: 20px;
+       padding-right: 20px;  
+       text-align: left;
+    }
+     .completed{
+ 	text-decoration: line-through;    
+     }
+    </style>
+</head>
+
+<body>
+
+    <form hx-post="/todo" hx-target="#todo-list" class="padded">
+        <label for="newTodo" class="padded">
+        New Todo:
+        <input type="text" name="newTodo" id="newTodo" class="input padded"/>
+           
+        </label>
+        <button type="submit" class="button is-primary padded">Submit</button>
+    </form>
+
+    <ol id="todo-list" hx-get="/todo" hx-trigger="load"></ol>
+
+</body>
+
+</html>

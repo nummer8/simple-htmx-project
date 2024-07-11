@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      My Todo List
+    </title>
+    <meta charset="utf-8">
+    <meta name="description" content="a simple todo list with bulma nad freepascal">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="OctoLynx">
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"  crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="icon" href="https://appsrv1-147a1.kxcdn.com/bulma-css-starter/media/favicon.png">
+    <style>
+     .completed{
+ 	text-decoration: line-through;    
+     }
+    </style>
+  </head>
+  <body>
+    <div class="container is-fluid">
+     
+      <!-- Page Title -->
+      <section class="section">
+        <div class="container">
+          <h1 class="title has-text-centered">
+            My Amazing Todo List
+          </h1>
+          <form hx-post="/todo" hx-target="#todo-list" class="padded">
+            <label for="newTodo" class="padded">
+              New Todo:
+              <input type="text" name="newTodo" id="newTodo" class="input padded"/>
+            </label>
+            <button type="submit" class="button is-primary padded">Submit</button>
+          </form>
+        </div>
+      </section>
+      <hr>
+
+      <!-- Todo items -->  
+      <div class="container is-fluid">
+        <section class="section has-background-primary">
+            <div class="container">
+            <h2 class="title has-text-centered has-text-white">My Todo Items</h2>
+            <p class="has-text-centered subtitle has-text-white"></p>
+           
+            </div>
+        </section>
+        <hr>
+
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container has-text-centered is-size-3" >
+            <ul id="todo-list" hx-get="/todo" hx-trigger="load">hier komt iets</ul>
+                </div>
+                <br />
+  
+            </div>
+        </section>
+        <hr>
+     </div>
+
+    
+     
+      
+      
+      <!-- Footer -->
+      <div class="container is-fluid">
+        <footer class="footer">
+          <div class="container">
+            <div class="columns">
+              <div class="column is-4"></div>
+              <div class="column is-4 has-text-centered is-hidden-mobile">
+                Open-Source - MIT License
+                </div>
+              <div class="column is-4 has-text-right"></div>
+            </div>
+            <p class="subtitle has-text-centered is-6">
+                &copy; OctoLynx <br/>Styled with Bulma.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
